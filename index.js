@@ -20,6 +20,11 @@ function Phrase(content) {
     return this.processor(this.content);
   }
 
+  // Return only letters of the content
+  this.letters = function letters() {
+    return this.content;
+  }
+
   // Returns true for a palindrome, false otherwise.
   this.palindrome = function palindrome() {
     return this.processedContent() === this.processedContent().reverse();
