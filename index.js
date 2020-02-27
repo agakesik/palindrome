@@ -9,20 +9,26 @@ String.prototype.reverse = function() {
 function Phrase(content) {
   this.content = content;
 
-  // process to Lower case
-  this.processor = function(string) {
-    return string.toLowerCase();
-  }
+  // // process to Lower case
+  // this.processor = function(string) {
+  //   return string.toLowerCase();
+  // }
 
 
-  // Returns content processed for palindrome testing
+  // Returns content processed for palindrome testing (letters only & lower case)
   this.processedContent = function processedContent() {
-    return this.processor(this.content);
+    return this.letters().toLowerCase();
   }
 
   // Return only letters of the content
   this.letters = function letters() {
-    return this.content;
+    let theLetters = [];
+    for (let i=0; i<this.content.length; i++) {
+      if (this.content.charAt(i).match(/[a-zA-Z]/)) {
+        theLetters.push(this.content.charAt(i));
+      }
+    }
+    return theLetters.join("");;
   }
 
   // Returns true for a palindrome, false otherwise.
